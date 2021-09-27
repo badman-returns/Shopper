@@ -13,6 +13,16 @@ const catergoryReducer = (state = initialState, { type, payload }) => {
     }
 }
 
+const featuredProductsReducer = (state = initialState, { type, payload }) => {
+    switch (type) {
+        case actionTypes.SET_FEATURED_PRODUCTS:
+            return { ...state, products: payload };
+        default:
+            return state;
+    }
+}
+
 export {
     catergoryReducer,
+    featuredProductsReducer
 }

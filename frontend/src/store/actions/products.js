@@ -7,6 +7,14 @@ const setCategories = (categories) => {
     };
 }
 
+const setFeatured = (products) => {
+    return {
+        type: actionTypes.SET_FEATURED_PRODUCTS,
+        payload: products,
+    }
+}
+
 export {
     setCategories,
+    setFeatured
 }

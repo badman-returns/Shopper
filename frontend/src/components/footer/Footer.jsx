@@ -14,7 +14,7 @@ function Footer() {
 
     return (
         <Grid container justifyContent='center' alignItems='center' className={classes.root}>
-            &copy; {new Date().getFullYear()} <span>CloneCart.</span> &nbsp; All Rights Reserved.
+            &copy; {new Date().getFullYear()} <span> &nbsp;Shopper.</span> &nbsp; All Rights Reserved.
         </Grid>
     )
 }
