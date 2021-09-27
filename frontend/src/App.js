@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { HashRouter, Switch, Route } from 'react-router-dom';
-import { GetAllProducts, GetCatergories } from './services/fakestore.service';
-import { setCategories, setFeatured } from './store/actions/products';
+import { GetAllProducts } from './services/fakestore.service';
+import { seProducts } from './store/actions/products';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { pink } from '@material-ui/core/colors';
 import Footer from './components/footer/Footer.jsx';
@@ -26,29 +26,24 @@ function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    GetCatergories().then((response) => {
-      dispatch(setCategories(response));
-    })
-  }, [dispatch]);
-
-  useEffect(() => {
     GetAllProducts().then((response) => {
-      dispatch(setFeatured(response));
+      console.log(response);
+      dispatch(seProducts(response));
     })
   }, [dispatch]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <HashRouter>
+    <HashRouter>
+      <ThemeProvider theme={theme}>
         <Navbar />
         <Switch>
-          <Route path='/'><Home /></Route>
           <Route path='/products'><Products /></Route>
+          <Route path='/'><Home /></Route>
         </Switch>
         {/* <Footer /> */}
-      </HashRouter>
+      </ThemeProvider>
+    </HashRouter>
 
-    </ThemeProvider>
   )
 }
 

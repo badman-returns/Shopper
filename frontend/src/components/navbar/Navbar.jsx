@@ -34,19 +34,21 @@ function Navbar() {
                                 <Grid item md={7} xl={6}>
                                     <Grid container justifyContent='space-between'>
                                         <Grid item>
-                                            <Typography component={Link} to='/' variant='subtitle1' style={{textDecoration:'none'}} className="animate">
+                                            <Typography component={Link} to='/' variant='subtitle1' style={{ textDecoration: 'none' }} className="animate">
                                                 <b className={classes.categories}>Home</b>
                                             </Typography>
                                         </Grid>
                                         <Grid item>
-                                            <Typography variant='subtitle1' style={{textDecoration:'none'}} className="animate">
+                                            <Typography variant='subtitle1' style={{ textDecoration: 'none' }} className="animate">
                                                 <b className={classes.categories}>About</b>
                                             </Typography>
                                         </Grid>
                                         <Grid item>
-                                            <Typography component={Link} to='products' variant='subtitle1' style={{textDecoration:'none'}} className="animate">
-                                                <b className={classes.categories}>Products</b>
-                                            </Typography>
+                                            <Link to='/products'>
+                                                <Typography variant='subtitle1' style={{ textDecoration: 'none' }} className="animate">
+                                                    <b className={classes.categories}>Products</b>
+                                                </Typography>
+                                            </Link>
                                         </Grid>
                                     </Grid>
                                 </Grid>

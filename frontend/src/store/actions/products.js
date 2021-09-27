@@ -1,20 +1,12 @@
 import { actionTypes } from '../types';
 
-const setCategories = (categories) => {
+const seProducts = (products) => {
     return {
-        type: actionTypes.SET_CATEGORIES,
-        payload: categories,
-    };
-}
-
-const setFeatured = (products) => {
-    return {
-        type: actionTypes.SET_FEATURED_PRODUCTS,
+        type: actionTypes.SET_PRODUCTS,
         payload: products,
     }
 }
 
 export {
-    setCategories,
-    setFeatured
+    seProducts
 }

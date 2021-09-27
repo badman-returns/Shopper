@@ -3,18 +3,11 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const GetCatergories = async() => {
-    try{
-        const response = await axios.get(`${process.env.REACT_APP_FAKESTORE_API}/products/categories`);
-        return response.data;
-    } catch(error){
-        throw new Error(error);
-    }
-}
+
 
 const GetAllProducts = async() => {
     try{
-        const response = await axios.get(`${process.env.REACT_APP_FAKESTORE_API}/products?limit=6`);
+        const response = await axios.get(`https://course-api.com/react-store-products`);
         return response.data;
     } catch (error){
         throw new Error(error);
@@ -22,6 +15,5 @@ const GetAllProducts = async() => {
 }
 
 export {
-    GetCatergories,
     GetAllProducts
 }

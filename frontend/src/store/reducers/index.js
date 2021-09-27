@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { catergoryReducer, featuredProductsReducer } from "./products";
+import { productsReducer } from "./products";
 import { persistReducer } from "redux-persist";
 import sessionStorage from "redux-persist/es/storage/session";
 
@@ -10,8 +10,7 @@ const persistConfig = {
 }
 
 const reducers = combineReducers({
-    categories: catergoryReducer,
-    featured: featuredProductsReducer,
+    products: productsReducer,
 });
 
 export default persistReducer(persistConfig, reducers);
