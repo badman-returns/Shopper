@@ -1,18 +1,22 @@
 import { actionTypes } from "../types";
 
 const initialState = {
-    categories: null,
+    products: null,
+    productDetails: null,
 }
 
-const catergoryReducer = (state = initialState, { type, payload }) => {
+
+const productsReducer = (state = initialState, { type, payload }) => {
     switch (type) {
-        case actionTypes.SET_CATEGORIES:
-            return { ...state, categories: payload };
+        case actionTypes.SET_PRODUCTS:
+            return { ...state, products: payload };
+        case actionTypes.SET_PRODUCT_DETAILS:
+            return { ...state, productDetails: payload };
         default:
             return state;
     }
 }
 
 export {
-    catergoryReducer,
+    productsReducer
 }
