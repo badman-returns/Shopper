@@ -68,7 +68,7 @@ class App {
 
     private routes() {
         this.app.get('/', (req: Request, res: Response, next: NextFunction) => {
-            res.send('Clonecart Backend');
+            res.send('Shopper Backend');
         });
         this.app.use('/api/v1', this.apiV1Routes);
     }
