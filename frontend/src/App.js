@@ -6,9 +6,11 @@ import { setProducts } from './store/actions/products';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { pink } from '@material-ui/core/colors';
 import Footer from './components/footer/Footer.jsx';
+import ScrollToTop from './utility/scroll-to-top';
+import ProductDetails from './pages/product-details/ProductDetails';
 const Navbar = React.lazy(() => import('./components/navbar/Navbar'));
 const Home = React.lazy(() => import('./pages/Home/Home'));
-const Products = React.lazy(() => import('./pages/Products/Products'));
+const Products = React.lazy(() => import('./pages/products/Products'));
 
 const theme = createTheme({
   palette: {
@@ -35,7 +37,9 @@ function App() {
     <HashRouter>
       <ThemeProvider theme={theme}>
         <Navbar />
+        <ScrollToTop />
         <Switch>
+          <Route path='/product/:id'><ProductDetails/></Route>
           <Route path='/products'><Products /></Route>
           <Route path='/'><Home /></Route>
         </Switch>
