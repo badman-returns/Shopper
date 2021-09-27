@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import { GetAllProducts } from './services/fakestore.service';
-import { seProducts } from './store/actions/products';
+import { setProducts } from './store/actions/products';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { pink } from '@material-ui/core/colors';
 import Footer from './components/footer/Footer.jsx';
@@ -27,8 +27,7 @@ function App() {
 
   useEffect(() => {
     GetAllProducts().then((response) => {
-      console.log(response);
-      dispatch(seProducts(response));
+      dispatch(setProducts(response));
     })
   }, [dispatch]);
 
@@ -40,7 +39,7 @@ function App() {
           <Route path='/products'><Products /></Route>
           <Route path='/'><Home /></Route>
         </Switch>
-        {/* <Footer /> */}
+        <Footer />
       </ThemeProvider>
     </HashRouter>
 

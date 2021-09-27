@@ -6,7 +6,7 @@ import sessionStorage from "redux-persist/es/storage/session";
 const persistConfig = {
     key: 'root',
     storage: sessionStorage,
-    whitelist: ['categories', 'featured']
+    whitelist: ['products']
 }
 
 const reducers = combineReducers({

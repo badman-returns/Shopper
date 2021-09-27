@@ -1,9 +1,4 @@
 import axios from 'axios';
-const dotenv = require('dotenv');
-
-dotenv.config();
-
-
 
 const GetAllProducts = async() => {
     try{
@@ -14,6 +9,16 @@ const GetAllProducts = async() => {
     }
 }
 
+const GetProductById = async(id) => {
+    try{
+        const response = await axios.get(`https://course-api.com/react-store-products?id=${id}`)
+        return response.data;
+    } catch (error){
+        throw new Error(error);
+    }
+}
+
 export {
-    GetAllProducts
+    GetAllProducts,
+    GetProductById
 }

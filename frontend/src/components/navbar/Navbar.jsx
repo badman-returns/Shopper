@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
 import { AppBar, Toolbar, Grid, Typography, Button } from '@material-ui/core';
@@ -18,10 +18,21 @@ const useStyles = makeStyles(() => ({
 
 function Navbar() {
     const classes = useStyles();
+    const [scroll, setScroll] = useState(false);
+    // const [elevation, setElevation] = useState(0);
+
+    const handleElevation = () => {
+        if (window.scrollY > 50) {
+            setScroll(true)
+        } else {
+            setScroll(false);
+        }
+    }
+    window.addEventListener('scroll', handleElevation);
 
     return (
-        <div>
-            <AppBar position='fixed' elevation={1} color='inherit'>
+        <div onScroll={handleElevation}>
+            <AppBar position='fixed' elevation={scroll ? 1 : 0} color='inherit'>
                 <Toolbar>
                     <Grid container>
                         <Grid item md={6} xl={6}>

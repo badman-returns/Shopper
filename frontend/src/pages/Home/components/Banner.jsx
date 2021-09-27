@@ -1,10 +1,11 @@
 import React from 'react'
+import { useHistory } from 'react-router';
 import { Grid, makeStyles, Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     container: {
         height: 'calc(100vh - 10)',
-        margin: '5rem 2rem 0rem 10rem',
+        margin: '5rem 2rem 5rem 10rem',
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
         gap: '8rem',
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        ":*": {
+        "& > *": {
             alignSelf: 'flex-start',
         }
     },
@@ -35,18 +36,14 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '10px',
     },
     shopNowBtn: {
-        fontSize: '1.5rem',
+        fontSize: '1.2rem',
     }
 }))
 
 function Banner() {
+    const history = useHistory();
     const classes = useStyles();
     return (
-        // <Grid container >
-        //     <Grid item md={12}>
-        //         <img src={process.env.PUBLIC_URL + 'banner.jpg'} className={classes.banner} alt='banner' />
-        //     </Grid>
-        // </Grid>
         <Grid className={classes.container}>
             <Grid className={classes.description}>
                 <h1 className={classes.descriptionHeading}>
@@ -64,7 +61,7 @@ function Banner() {
                     color="primary"
                     disableElevation
                     className={classes.shopNowBtn}
-                // onClick={() => history.push("/products")}
+                    onClick={() => history.push("/products")}
                 >
                     Shop Now
                 </Button>

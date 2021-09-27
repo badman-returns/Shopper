@@ -5,7 +5,7 @@ import { AddShoppingCart } from '@material-ui/icons';
 const useStyles = makeStyles(() => ({
     root: {
         maxWidth: '100%',
-        minHeight: '100%'
+        minHeight: '100%',
     },
     name: {
         textTransform: 'capitalize'

@@ -6,6 +6,7 @@ import Product from '../../components/product/Product';
 const useStyles = makeStyles(() => ({
     root: {
         marginTop: '100px',
+        padding: '30px'
     }
 }))
 
