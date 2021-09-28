@@ -56,6 +56,9 @@ const useStyles = makeStyles(() => ({
         "& button": {
             alignSelf: "flex-start",
         },
+        "& h1":{
+            textTransform: 'capitalize',
+        },
     },
     productPrice: {
         color: "#d81b60",

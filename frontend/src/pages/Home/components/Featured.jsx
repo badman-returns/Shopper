@@ -1,7 +1,7 @@
 import React from 'react'
 import Product from '../../../components/product/Product';
 import { Link } from 'react-router-dom';
-import { Grid, Typography, makeStyles } from '@material-ui/core';
+import { Grid, Typography, makeStyles, Button } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles(() => ({
@@ -41,6 +41,7 @@ function Featured() {
                             </Grid>
                         ))
                         }
+                        <Button component={Link} to='/products' variant='contained' color='primary'>View All</Button>
                     </Grid>
                     <Grid item lg={1} xl={2}></Grid>
                 </Grid>
