@@ -7,44 +7,14 @@ const Userschema = new Schema({
         type: String,
         required: true,
     },
-    bio: {
-        type: String,
-    },
-    picId: {
-        type: String,
-    },
-    picURL:{
-        type: String,
-    },
     email: {
         type: String,
         required: true,
         unique: true,
     },
-    role: {
-        type: String,
-        required: true,
-    },
-    githubId: {
-        type: String,
-        default: null,
-    },
-    techStack: {
-        type: Array,
-        default: null,
-    },
-    company: {
-        type: String,
-        default: null,
-    },
     password: {
         type: String,
         required: true
-    },
-    active: {
-        type: Boolean,
-        default: false,
-        required: true,
     },
     createdOn: {
         type: Date,

@@ -3,7 +3,9 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import logger from 'morgan';
 import mongoose from 'mongoose';
-import express, { NextFunction, Response, Request } from 'express';
+import express, { Response, Request } from 'express';
+import { DefaultUser } from './utility';
+import { PublicRouter } from './routes/public.router';
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -29,7 +31,12 @@ class App {
                 useCreateIndex: true,
                 poolSize: Number(process.env.MONGODB_POOLSIZE),
                 keepAlive: true,
-            });
+            }).then(() => {
+                console.log('Connected to Database ...')
+                DefaultUser.createDefaultUser().then(() => {
+                    console.log('Default Test User created ...');
+                }).catch(error => console.log(error))
+            }).catch(error => console.log(error));
     }
 
     public listen() {
@@ -67,10 +74,11 @@ class App {
     }
 
     private routes() {
-        this.app.get('/', (req: Request, res: Response, next: NextFunction) => {
+        this.app.get('/', (req: Request, res: Response) => {
             res.send('Shopper Backend');
         });
         this.app.use('/api/v1', this.apiV1Routes);
+        this.apiV1Routes.use('/', PublicRouter)
     }
 }
 
